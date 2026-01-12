@@ -1,14 +1,8 @@
-import './App.css';
-import Accueil from './Page/Accueil';
-
-import './font/css/all.min.css';
+import React from "react";
+import Accueil from "./Page/Accueil.js";
 
 function App() {
-	return (
-		<div className="App">
-			<Accueil />
-		</div>
-	);
+	return <Accueil />;
 }
 
 export default App;
