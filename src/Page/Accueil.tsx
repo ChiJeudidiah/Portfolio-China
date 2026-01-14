@@ -498,6 +498,9 @@ const Accueil: React.FC = () => {
                     ref={fullscreenOverlayRef}
                     onClick={handleOverlayClick}
                 >
+                    <button className="close-fullscreen-btn" onClick={closeFullScreen}>
+                        <i className="fas fa-times"></i>
+                    </button>
                     <div className="fullscreen-thumbnails-grid">
                         {projects.map((project, index) => (
                             <button
@@ -521,23 +524,26 @@ const Accueil: React.FC = () => {
                                     <h3 className="fullscreen-project-title">{projects[activeProjectIndex].title}</h3>
                                 </div>
                             </div>
-                            <button className="close-fullscreen-btn" onClick={closeFullScreen}>
-                                <i className="fas fa-times"></i>
-                            </button>
                         </div>
 
                         <div className="fullscreen-image-container">
-                            <button className="fullscreen-nav-btn prev" onClick={prevImage}>
-                                <i className="fas fa-chevron-left"></i>
-                            </button>
-                            <img
-                                src={projects[activeProjectIndex].images[activeImageIndex]}
-                                alt={`${projects[activeProjectIndex].title} - Image ${activeImageIndex + 1}`}
-                                className="fullscreen-main-image"
-                            />
-                            <button className="fullscreen-nav-btn next" onClick={nextImage}>
-                                <i className="fas fa-chevron-right"></i>
-                            </button>
+                            <div className="fullscreen-image-wrapper">
+                                <div className="fullscreen-image-nav-container">
+                                    <button className="fullscreen-nav-btn prev" onClick={prevImage}>
+                                        <i className="fas fa-chevron-left"></i>
+                                    </button>
+                                    <button className="fullscreen-nav-btn next" onClick={nextImage}>
+                                        <i className="fas fa-chevron-right"></i>
+                                    </button>
+                                </div>
+                                <div className="fullscreen-image-display">
+                                    <img
+                                        src={projects[activeProjectIndex].images[activeImageIndex]}
+                                        alt={`${projects[activeProjectIndex].title} - Image ${activeImageIndex + 1}`}
+                                        className="fullscreen-main-image"
+                                    />
+                                </div>
+                            </div>
                         </div>
 
                         <div className="fullscreen-info-container">
